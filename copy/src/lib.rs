@@ -1,6 +1,6 @@
 pub fn nbr_function(c: i32) -> (i32, f64, f64) { 
     let f = c as f64;
-    let l = f.ln().abs();
+    let l = f.abs().ln();
     (c, f.exp(), l)
 }
 
