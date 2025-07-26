@@ -19,7 +19,7 @@ pub fn vec_function(b: Vec<i32>) -> (Vec<i32>, Vec<f64>) {
     let mut result = Vec::new();
     for num in &b {
         let c = *num as f64;
-        let ln = c.ln().abs();
+        let ln = c.abs().ln();
         result.push(ln);
     }
     (b, result)
