@@ -1,5 +1,5 @@
 
-use rand::prelude::*;
+use rand::Rng;
 
 #[derive(PartialEq, Debug)]
 pub enum Suit {
@@ -20,8 +20,8 @@ pub enum Rank {
 
 impl Suit {
     pub fn random() -> Suit {
-        let mut rng = rand::rng();
-        match rng.random_range(1..=4) {
+        let mut rng = rand::thread_rng();
+        match rng.gen_range(1..=4) {
             1 => Suit::Heart,
             2 => Suit::Diamond,
             3 => Suit::Spade,
@@ -43,8 +43,8 @@ impl Suit {
 
 impl Rank {
     pub fn random() -> Rank {
-        let mut rng = rand::rng();
-        match rng.random_range(1..=13) {
+        let mut rng = rand::thread_rng();
+        match rng.gen_range(1..=13) {
             1 => Rank::Ace,
             2 => Rank::Number(2),
             3 => Rank::Number(3),
