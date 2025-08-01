@@ -6,8 +6,8 @@ pub struct Flag {
     pub desc: String,
 }
 
-impl<'a> Flag<'a> {
-    pub fn opt_flag(name: &'a str, d: &'a str) -> Self {
+impl Flag{
+    pub fn opt_flag(name: &str, d: &str) -> Self {
         Flag {
             short_hand: format!("-{}", name.chars().nth(0).unwrap()),
             long_hand: format!("--{}", name),
@@ -41,18 +41,15 @@ impl FlagsHandler {
 }
 
 pub fn div(a: &str, b: &str) -> Result<String, ParseFloatError> {
-    // todo!()
-
     let num_a = a.parse::<f64>()?;
     let num_b = b.parse::<f64>()?;
-    num_a/num_b;
+    // num_a/num_b;
     Ok((num_a / num_b).to_string())
 }
 
 pub fn rem(a: &str, b: &str) -> Result<String, ParseFloatError> {
-    // todo!()
     let num_a = a.parse::<f64>()?;
     let num_b = b.parse::<f64>()?;
-    num_a%num_b;
+    // num_a%num_b;
     Ok((num_a%num_b).to_string())
 }
