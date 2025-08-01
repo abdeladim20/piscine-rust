@@ -1,3 +1,4 @@
+// #[derive(Debug)]
 pub enum Security {
     Unknown,
     Message,
@@ -9,28 +10,27 @@ pub enum Security {
 
 
 pub fn fetch_data(server: Result<&str, &str>, security_level: Security) -> String {
-    match server {
-        
-        security_level::Unknown => match server {
-            Ok(URL) => URL.to_string(),
-            Err(_) => panic!("")
+    // println!("rr: {:?}", security_level);
+    match security_level {        
+        Security::Unknown => match server {
+            Ok(url) => url.to_string(),
+            Err(_) => panic!(),
         },
-
-        security_level::Message => match server {
-            Ok(URL) => URL.to_string(),
+        Security::Message => match server {
+            Ok(url) => url.to_string(),
             Err(_) => panic!("ERROR: program stops"),
         },
-        security_level::Warning => match server {
-            Ok(URL) => URL.to_string(),
+        Security::Warning => match server {
+            Ok(url) => url.to_string(),
             Err(_) => "WARNING: check the server".to_string(),
-        }
-        security_level::NotFound => match server {
-            Ok(URL) => URL.to_string(),
-            Err(err) => println!("Not found: {}", err).
-        }
-        security_level::UnexpectedUrl => match server {
-            Ok(URL) => URL.to_string(),
-            Err(err) => panic!("{}", URL),
-        }
+        },
+        Security::NotFound => match server {
+            Ok(url) => url.to_string(),
+            Err(err) => format!("Not found: {}", err),
+        },
+        Security::UnexpectedUrl => match server {
+            Ok(url) => url.to_string(),
+            Err(err) => panic!("{}", err),
+        },
     }
 }
