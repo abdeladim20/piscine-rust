@@ -1,5 +1,5 @@
 pub fn search(array: &[i32], key: i32) -> Option<usize> {  
-    for i in array.len()-1..0 {
+    for i in (0..array.len()).rev() {
         if array[i] == key {
             return Some(i as usize);
         }
