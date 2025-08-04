@@ -21,13 +21,13 @@ pub fn pig_latin(text: &str) -> String {
     }
     let mut i = 0;
     for c in text.chars() {
-        i += 1;
         if is_vowel(c) {
-            result.push_str(&text[i-1..]);
+            result.push_str(&text[i..]);
             result.push_str(&text[..i]);
             result.push_str("ay");
             return result;
         }
+        i += 1;
     }
     result
 }
