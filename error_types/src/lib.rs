@@ -1,4 +1,3 @@
-// this will be the structure that wil handle the errors
 #[derive(Debug, Eq, PartialEq)]
 pub struct FormError {
     // expected public fields
