@@ -1,6 +1,6 @@
 mod scalar;
 use scalar::*;
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 pub struct Matrix<T>(pub Vec<Vec<T>>);
 
 impl <T: Scalar<Item = T>> Matrix<T> {
