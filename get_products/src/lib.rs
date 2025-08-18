@@ -1,5 +1,5 @@
 pub fn get_products(arr: Vec<usize>) -> Vec<usize> {
-    if arr.is_empty() {
+    if arr.len() <= 1 {
         return vec![];
     }
 
@@ -10,7 +10,6 @@ pub fn get_products(arr: Vec<usize>) -> Vec<usize> {
         result[i] = prefix_product;
         prefix_product *= arr[i];
     }
-
     let mut suffix_product = 1;
     for i in (0..n).rev() {
         result[i] *= suffix_product;
